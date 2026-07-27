@@ -71,14 +71,13 @@ p:last-child{margin-bottom:0;}
 /* ===== Brand mark ===== */
 .mark{
   position:fixed;
-  top:28px; left:32px;
+  top:22px; left:32px;
   z-index:20;
-  font-family:'Montserrat', sans-serif;
-  font-weight:700;
-  font-size:15px;
-  letter-spacing:0.01em;
-  color:var(--ink);
-  mix-blend-mode:normal;
+}
+.mark img{
+  height:34px;
+  width:auto;
+  display:block;
 }
 
 /* ===== Chip / eyebrow ===== */
@@ -159,11 +158,11 @@ p:last-child{margin-bottom:0;}
 .hero__inner{
   position:relative;
   z-index:1;
-  max-width:820px;
+  max-width:880px;
   text-align:center;
 }
 .hero__title{
-  font-size:clamp(2.1rem, 4.6vw, 3.6rem);
+  font-size:clamp(1.8rem, 3.6vw, 2.75rem);
   color:var(--ink);
 }
 .hero__title .accent{color:var(--rose-deep);}
@@ -287,7 +286,15 @@ h2{font-size:clamp(1.6rem, 2.6vw, 2.3rem); max-width:720px;}
   display:block;
 }
 .media-frame--post img{object-fit:contain; max-height:520px;}
-.media-frame:not(.media-frame--post) img{object-fit:cover; aspect-ratio:1/1;}
+.media-frame:not(.media-frame--post){padding:28px;}
+.media-frame:not(.media-frame--post) img{
+  object-fit:contain;
+  aspect-ratio:1/1;
+  max-width:78%;
+  max-height:340px;
+  margin:0 auto;
+  border-radius:var(--radius-sm);
+}
 
 /* ===== Vidéo ===== */
 .video-card{
@@ -310,16 +317,20 @@ h2{font-size:clamp(1.6rem, 2.6vw, 2.3rem); max-width:720px;}
   width:100%; height:100%;
   object-fit:cover;
   opacity:0;
+  pointer-events:none;
   transition:opacity .3s var(--ease);
 }
 .video-card__thumb.is-playing video{
   opacity:1;
+  pointer-events:auto;
 }
 .video-card__thumb.is-playing .play-btn{
   opacity:0;
   pointer-events:none;
 }
 .play-btn{
+  position:relative;
+  z-index:2;
   width:76px; height:76px;
   border-radius:50%;
   border:none;
@@ -430,5 +441,6 @@ h2{font-size:clamp(1.6rem, 2.6vw, 2.3rem); max-width:720px;}
 @media (max-width:600px){
   .section{padding:88px 20px;}
   .context-cards{grid-template-columns:1fr;}
-  .mark{top:20px; left:20px; font-size:14px;}
+  .mark{top:16px; left:20px;}
+  .mark img{height:26px;}
 }
